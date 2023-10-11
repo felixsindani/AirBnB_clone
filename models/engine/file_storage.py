@@ -41,3 +41,17 @@ class FileStorage:
             json.dump(new_dict, fname)
             # uses the json.dump method to serialize the new_dict dictionary
             # write it to the JSON file specified by name
+            
+    def reload(self):
+        """ deserializes the JSON file to __objects (only if the JSON file (__file_path) exists """
+        if os.path.isfile(FileStorage.__file_path):  # checks if the JSON file exists
+            with open(FileStorage.__file_path, 'r', encoding="utf-8") as fname:
+                l_json = json.load(fname)
+                # reads and deserializes the JSON data from the file into a Python dictionary,
+                # and stored in the l_json var
+                for key, val in l_json.items():
+                    FileStorage.__objects[key] = eval(
+                        val['__class__'])(**val)
+                    # eval function dynamically creates an instance of a class
+                    # and pass the deserialized data as keyword arguments to initialize the object
+                    # then adds this object to the __objects dictionary with the appropriate key.
