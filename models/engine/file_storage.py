@@ -25,3 +25,19 @@ class FileStorage:
         # (retrieved using obj.__class__.__name__)
         # and its id attribute (converted to a string using str(obj.id)).
         FileStorage.__objects[obj.__class__.__name__ + "." + str(obj.id)] = obj
+        
+    def save(self):
+        """ serializes objects to the JSON file (path: __file_path) """
+        with open(FileStorage.__file_path, 'w', encoding='utf-8') as fname:
+            #  opens the JSON file specified by the __file_path class variable
+            #  in write mode ('w') with UTF-8 encoding
+            #  with statement ensures that the file is properly closed after writing
+            new_dict = {key: obj.to_dict() for key, obj in
+                        FileStorage.__objects.items()}
+            # creates a new dictionary- new_dict
+            # by iterating over the items in the __objects dictionary
+            # calls a to_dict method on each object
+            # convert objects to dictionaries before serializing them.
+            json.dump(new_dict, fname)
+            # uses the json.dump method to serialize the new_dict dictionary
+            # write it to the JSON file specified by name
