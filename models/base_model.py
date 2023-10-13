@@ -40,8 +40,10 @@ class BaseModel():
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
+            # record the timestamp when the object is created
             self.updated_at = datetime.now()
             models.storage.new(self)
+            # add the current instance (object) to the storage system
 
     def __str__(self):
         """
