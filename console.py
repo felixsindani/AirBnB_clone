@@ -96,6 +96,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             print([str(a) for b, a in storage.all().items() if arg in b])
+            # list comprehension to filter and print the string representations
+            # of instances from the storage dictionary
             
     def do_update(self, arg):
         """ Method to update JSON file,based on the class name and id. Save the change into the JSON file"""
