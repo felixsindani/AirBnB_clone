@@ -5,7 +5,7 @@ Module Review class
 from models.base_model import BaseModel
 
 
-class Review(BaseModel):
+class review(BaseModel):
     """
     Inherits from BaseModel
     Public class attributes:
