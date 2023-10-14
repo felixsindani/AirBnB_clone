@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
     doc_header = 'Documented Help Topics'
     misc_header = 'misc_header'
     undoc_header = 'undoc_header'
-    ruler = '.'
+    ruler = '='
     
     classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
                'Place': Place, 'Amenity': Amenity, 'review': review,
@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
         """ Type quit to close/exit the session """
         exit()
 
-    def do_eof(self, arg):
+    def do_EOF(self, arg):
         """  Function do_EOF has a return value of True. Type Ctrl-D to drop out of the interpreter """
         print('')
         exit()
