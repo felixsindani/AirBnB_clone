@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     """
         HBNBCommand class
     """
-    intro = "Example of Simple command processor"
+    intro = "Documented commands (type help <topic>): "
     prompt = '(hbnb): '
     doc_header = 'Documented Help Topics'
     misc_header = 'misc_header'
@@ -30,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
                'State': State}
 
     def do_quit(self, arg):
-        """ Type quit to close/exit the session """
+        """ Quit command to exit the program """
         exit()
 
     def do_EOF(self, arg):
